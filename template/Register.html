@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+      }
+      .container {
+        background: #fff;
+        padding: 20px 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        position: relative;
+        margin-bottom: 20px;
+      }
+      input {
+        width: 100%;
+        padding: 12px 10px;
+        font-size: 1rem;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        transition: 0.3s ease;
+        outline: none;
+      }
+      input:focus {
+        border-color: #2575fc;
+        box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+      }
+      label {
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        color: #aaa;
+        font-size: 0.9rem;
+        transition: 0.3s ease;
+      }
+      input:focus + label,
+      input:not(:placeholder-shown) + label {
+        top: -8px;
+        left: 8px;
+        font-size: 0.75rem;
+        color: #2575fc;
+        background: #fff;
+        padding: 0 4px;
+      }
+      button {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 15px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      button:hover {
+        background: linear-gradient(135deg, #2575fc, #6a11cb);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register Now</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder=" " required />
+          <label for="name">Full Name</label>
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder=" "
+            required
+          />
+          <label for="email">Email Address</label>
+        </div>
+        <div class="form-group">
+          <input type="tel" id="phone" name="phone" placeholder=" " required />
+          <label for="phone">Phone Number</label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
